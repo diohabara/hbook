@@ -3,4 +3,9 @@ import Data.Char
 
 main = do
     contents <- getContents
-    putStr $ map toUpper contents
+    putStr (shortLinesOnly contents)
+
+shortLinesOnly :: String -> String
+shortLinesOnly = unlines . filter (\line -> length line < 10) . lines
+
+
